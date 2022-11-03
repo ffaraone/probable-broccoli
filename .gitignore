@@ -1,0 +1,7 @@
+*.pyc
+htmlcov
+.coverage
+coverage.xml
+.test_async_dev.env
+node_modules
+ui/tests/coverage

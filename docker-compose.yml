@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  test_async_dev:
+    container_name: test_async_dev
+    build:
+      context: .
+    working_dir: /extension
+    command: cextrun -d
+    volumes: 
+      - .:/extension
+    env_file:
+      - .test_async_dev.env
+
+  test_async_bash:
+    container_name: test_async_bash
+    build:
+      context: .
+    working_dir: /extension
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/extension
+    env_file:
+      - .test_async_dev.env
+
+  test_async_test:
+    container_name: test_async_test
+    build:
+      context: .
+    working_dir: /extension
+    command: extension-test
+    volumes:
+      - .:/extension
+    env_file:
+      - .test_async_dev.env
